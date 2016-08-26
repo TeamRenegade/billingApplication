@@ -1,0 +1,131 @@
+﻿@model VisitorDemo.Utilities.PagedList<VisitorDemo.DataLayer.Order>
+
+@{
+    ViewBag.Title = "Index";
+    var orders = Model.GetListFromPage(Model.CurrentPage);
+    int index = 0;
+}
+
+<div class="container">
+
+    <h2>Orders for the customer @ViewBag.CustomerID</h2>
+
+    
+    <table class="table table-bordered table-condensed">
+        <thead>
+
+            <tr class="danger">
+                <th>
+                    OrderID
+                </th>
+                <th>
+                    Order Date
+                </th>
+                <th>
+                   Required Date
+                </th>
+                <th>
+                    Vat @@20%
+
+                </th>
+                <th>
+                   Order Amount
+                </th>
+                <th>
+                    Shipping Address
+                </th>
+                <th>
+                    City
+                </th>
+                <th>
+                    Country
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+
+        @foreach (var item in orders)
+        {
+            <tr class="@(index %2==0?"success":"warning")">
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderID)
+                </td>
+                <td>
+                    @string.Format("{0:d}",item.OrderDate)
+                </td>
+                <td>
+                    @string.Format("{0:d}", item.RequiredDate)
+                </td>
+
+                <td>
+                    @{
+                        var orderAmount = item.Order_Details.Sum(odet => (odet.UnitPrice * odet.Quantity));
+                        var taxAmount = 0.20M * orderAmount;
+                        orderAmount += taxAmount;
+                     }
+                    <p>@string.Format("{0:0.00}", taxAmount)</p>
+
+                </td>
+                <td>
+                    <p>@string.Format("{0:0.00}",orderAmount)</p>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ShipAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ShipCity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ShipCountry)
+                </td>
+                <td>
+                    <span class="glyphicon glyphicon-list-alt"></span>
+                    @Html.ActionLink("Show Invoice", "ShowInvoice", new { id = item.OrderID })
+
+                   
+                </td>
+            </tr>
+            index++;
+        }
+
+    </table>
+
+    <div style="float:right">
+
+        @if (Model.NoPages > 1)
+        {
+            
+        
+        <ul class="pagination">
+            <li><a href="/Order/Index?id=@ViewBag.CustomerID&page=1">&laquo;</a></li>
+
+            @for (int i = 1; i <= Model.NoPages; i++)
+            {
+                if (Model.CurrentPage == i)
+                {
+                    <li class="active"><a href="/Order/Index?id=@ViewBag.CustomerID&page=@i">@i</a></li>
+
+                }
+                else
+                {
+                    <li><a href="/Order/Index?id=@ViewBag.CustomerID&page=@i">@i</a></li>
+
+                }
+
+            }
+            <li><a href="/Order/Index?id=@ViewBag.CustomerID&page=@Model.NoPages">&raquo;</a></li>
+
+        </ul>
+       }
+
+    </div>
+    <div id="footer">
+    <ul class="nav nav-pills">
+        <li class="active">
+            @Html.ActionLink("Back To Customers", "Index", "Customer")
+
+
+        </li>
+    </ul>
+    </div>
+</div>

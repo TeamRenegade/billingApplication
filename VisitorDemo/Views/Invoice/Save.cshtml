@@ -1,0 +1,17 @@
+﻿@model VisitorDemo.DataLayer.Order
+
+@{
+    ViewBag.Title = "Save";
+}
+
+<div class="container">
+    <h2>Save Invoice Result:</h2>
+
+    <p>Invoiced saved successfully for the customer @Model.Customer.CompanyName against order @Model.OrderID</p>
+    <ul class="nav nav-pills">
+        <li class="active">@Html.ActionLink("Back", "Index", new { id = Model.OrderID })
+        </li>
+    </ul>
+    
+</div>
+

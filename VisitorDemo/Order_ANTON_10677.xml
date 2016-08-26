@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<invoice>
+  <header>
+    <company>ABC PLC</company>
+    <address1>121,J.B.Road</address1>
+    <address2>121,J.B.Road</address2>
+    <city>London</city>
+    <country>UK</country>
+    <zip>LS0 5TQ</zip>
+    <email>sales@abcplcltd.com</email>
+    <website>http://www.abcplc.co.uk</website>
+  </header>
+  <order orderid="10677">
+    <orderdate>22/09/1997</orderdate>
+    <shipping_details>
+      <contact_person>Antonio Moreno</contact_person>
+      <company>Antonio Moreno Taquería</company>
+      <address>Mataderos  2312</address>
+      <city>México D.F.</city>
+      <zip>05023</zip>
+      <country>Mexico</country>
+    </shipping_details>
+    <orderdetails>
+      <order_detail>
+        <productid>26</productid>
+        <description>Gumbär Gummibärchen</description>
+        <unitprice>31.2300</unitprice>
+        <quantity>30</quantity>
+      </order_detail>
+      <order_detail>
+        <productid>33</productid>
+        <description>Geitost</description>
+        <unitprice>2.5000</unitprice>
+        <quantity>8</quantity>
+      </order_detail>
+    </orderdetails>
+    <vat>191.38</vat>
+    <totalamount>1148.28</totalamount>
+  </order>
+  <footer>Thank you for doing Business with us!</footer>
+</invoice>

@@ -1,0 +1,106 @@
+﻿@model VisitorDemo.Utilities.PagedList<VisitorDemo.DataLayer.Customer>
+
+@{
+    ViewBag.Title = "Index";
+    var customers = Model.GetListFromPage(Model.CurrentPage);
+    int index = 0;
+}
+
+<div class="container">
+
+    <h2>Customer List</h2>
+
+
+    <table class="table table-bordered table-condensed">
+        <thead>
+
+            <tr class="danger">
+                <th>
+                    Contact Person
+                </th>
+                <th>
+                    Company
+                </th>
+
+                <th>
+                    Address
+                </th>
+                <th>
+                    City
+                </th>
+                <th>
+                    Postal Code
+                </th>
+                <th>
+                    Country
+                </th>
+                <th>
+                    Phone
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+
+        @foreach (var item in customers)
+        {
+
+
+            <tr class="@(index %2==0?"success":"warning")">
+                <td>
+                    <p>@Html.DisplayFor(modelItem => item.ContactTitle) @Html.DisplayFor(modelItem => item.ContactName) </p>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CompanyName)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.City)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.PostalCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Country)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phone)
+                </td>
+
+                <td>
+                    @Html.ActionLink("View Orders", "ViewOrders", new { id = item.CustomerID })
+                </td>
+            </tr>
+
+            index++;
+        }
+
+    </table>
+    <div style="float:right">
+
+        <ul class="pagination">
+            <li><a href="/Customer/Index?page=1">&laquo;</a></li>
+
+            @for (int i = 1; i <= Model.NoPages; i++)
+            {
+                if (Model.CurrentPage == i)
+                {
+                    <li class="active"><a href="/Customer/Index?page=@i">@i</a></li>
+    
+                }
+                else { 
+                     <li><a href="/Customer/Index?page=@i">@i</a></li>
+
+                }
+                
+            }
+            <li><a href="/Customer/Index?page=@Model.NoPages">&raquo;</a></li>
+
+        </ul>
+
+
+    </div>
+</div>

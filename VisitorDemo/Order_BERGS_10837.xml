@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<invoice>
+  <header>
+    <company>ABC PLC</company>
+    <address1>121,J.B.Road</address1>
+    <address2>121,J.B.Road</address2>
+    <city>London</city>
+    <country>UK</country>
+    <zip>LS0 5TQ</zip>
+    <email>sales@abcplcltd.com</email>
+    <website>http://wwww.abcplc.co.uk</website>
+  </header>
+  <order orderid="10837" orderdate="1998-01-16T00:00:00">
+    <shipping_details>
+      <contact_person>Christina Berglund</contact_person>
+      <company>Berglunds snabbköp</company>
+      <address>Berguvsvägen  8</address>
+      <city>Luleå</city>
+      <zip>S-958 22</zip>
+      <country>Sweden</country>
+    </shipping_details>
+    <orderdetails>
+      <order_detail>
+        <productid>13</productid>
+        <description>Konbu</description>
+        <unitprice>6.0000</unitprice>
+        <quantity>6</quantity>
+      </order_detail>
+      <order_detail>
+        <productid>40</productid>
+        <description>Boston Crab Meat</description>
+        <unitprice>18.4000</unitprice>
+        <quantity>25</quantity>
+      </order_detail>
+      <order_detail>
+        <productid>47</productid>
+        <description>Zaanse koeken</description>
+        <unitprice>9.5000</unitprice>
+        <quantity>40</quantity>
+      </order_detail>
+      <order_detail>
+        <productid>76</productid>
+        <description>Lakkalikööri</description>
+        <unitprice>18.0000</unitprice>
+        <quantity>21</quantity>
+      </order_detail>
+    </orderdetails>
+    <vat>250.800000</vat>
+    <totalamount>1504.800000</totalamount>
+  </order>
+  <footer>Thank you for doing Business with us!</footer>
+</invoice>

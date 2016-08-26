@@ -1,0 +1,99 @@
+﻿@model VisitorDemo.DataLayer.Order
+@{
+    Decimal orderAmount = 0;
+    Decimal taxAmount = 0;
+    
+}
+<div id="main">
+    <div class="row">
+        <div class="col-md-offset-4 col-md-4">
+            <h4 class="text-center">Invoice</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-1">
+            <p class="text-left">To,</p>
+        </div>
+        <div class="col-md-offset-7 col-md-4">
+           <p class="text-right">Ref:Order No. @Model.OrderID</p>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <p class="text-left">@Model.Customer.ContactName,</p>
+
+            </div>
+            <div class="col-md-offset-4 col-md-4">
+                <p class="text-right">@string.Format("{0:D}",Model.OrderDate)</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <p class="text-left">@Model.Customer.CompanyName,</p>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <p class="text-left">@Model.ShipAddress,@Model.ShipCity</p>
+
+            </div>
+        
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <p class="text-left">@Model.ShipCountry,@Model.ShipPostalCode</p>
+
+            </div>
+
+        </div>
+
+    
+    </div>
+   
+        <div id="details">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                     <td>Item No</td>
+                     <td>Item Description</td>
+                     <td>Quantity</td>
+                     <td>Unit Price</td>
+                     <td>Amount</td>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var odet in Model.Order_Details)
+                    {
+
+                        <tr>
+                            <td>@odet.ProductID</td>
+                            <td>@odet.Product.ProductName</td>
+                            <td>@odet.Quantity</td>
+                            <td>@string.Format("{0:0.00}",odet.UnitPrice)</td>
+                            <td>@string.Format("{0:0.00}",odet.UnitPrice * odet.Quantity)</td>
+                        </tr>
+                        orderAmount += (odet.UnitPrice*odet.Quantity);
+                        
+                    }
+                    @{
+                        taxAmount = 0.20M * orderAmount;   
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                     <td colspan="4"><p class="text-right">Tax @@20%:</p></td>
+                     <td>@string.Format("{0:0.00}",taxAmount)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4"><p class="text-right">Total:</p></td>
+                        <td><p class="text-left">@string.Format("{0:0.00}",orderAmount + taxAmount)</p></td>
+
+                    </tr>
+                </tfoot>
+            </table>
+
+        </div>
+
+</div>
+

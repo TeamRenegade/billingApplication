@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<invoice>
+  <header>
+    <company>ABC PLC</company>
+    <address1>121,J.B.Road</address1>
+    <address2>121,J.B.Road</address2>
+    <city>London</city>
+    <country>UK</country>
+    <zip>LS0 5TQ</zip>
+    <email>sales@abcplcltd.com</email>
+    <website>http://www.abcplc.co.uk</website>
+  </header>
+  <order orderid="11011">
+    <orderdate>4/9/1998</orderdate>
+    <shipping_details>
+      <contact_person>Maria Anders</contact_person>
+      <company>Alfreds Futterkiste</company>
+      <address>Obere Str. 57</address>
+      <city>Berlin</city>
+      <zip>12209</zip>
+      <country>Germany</country>
+    </shipping_details>
+    <orderdetails>
+      <order_detail>
+        <productid>58</productid>
+        <description>Escargots de Bourgogne</description>
+        <unitprice>13.2500</unitprice>
+        <quantity>40</quantity>
+      </order_detail>
+      <order_detail>
+        <productid>71</productid>
+        <description>Flotemysost</description>
+        <unitprice>21.5000</unitprice>
+        <quantity>20</quantity>
+      </order_detail>
+    </orderdetails>
+    <vat>192.00</vat>
+    <totalamount>1152.00</totalamount>
+  </order>
+  <footer>Thank you for doing Business with us!</footer>
+</invoice>

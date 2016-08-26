@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<invoice>
+  <header>
+    <company>ABC PLC</company>
+    <address1>121,J.B.Road</address1>
+    <address2>121,J.B.Road</address2>
+    <city>London</city>
+    <country>UK</country>
+    <zip>LS0 5TQ</zip>
+    <email>sales@abcplcltd.com</email>
+    <website>http://www.abcplc.co.uk</website>
+  </header>
+  <order orderid="10366">
+    <orderdate>28/11/1996</orderdate>
+    <shipping_details>
+      <contact_person>Eduardo Saavedra</contact_person>
+      <company>Galería del gastrónomo</company>
+      <address>Rambla de Cataluña, 23</address>
+      <city>Barcelona</city>
+      <zip>8022</zip>
+      <country>Spain</country>
+    </shipping_details>
+    <orderdetails>
+      <order_detail>
+        <productid>65</productid>
+        <description>Louisiana Fiery Hot Pepper Sauce</description>
+        <unitprice>16.8000</unitprice>
+        <quantity>5</quantity>
+      </order_detail>
+      <order_detail>
+        <productid>77</productid>
+        <description>Original Frankfurter grüne Soße</description>
+        <unitprice>10.4000</unitprice>
+        <quantity>5</quantity>
+      </order_detail>
+    </orderdetails>
+    <vat>27.20</vat>
+    <totalamount>163.20</totalamount>
+  </order>
+  <footer>Thank you for doing Business with us!</footer>
+</invoice>
